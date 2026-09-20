@@ -38,6 +38,12 @@ function onScroll() {
   navLinks.forEach((link) => link.classList.toggle("active", link === current));
 }
 
+// the header is position: fixed, so a link to #header never scrolls anywhere; scroll to the top directly
+backToTop.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+});
+
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll);
 onScroll();
