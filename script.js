@@ -46,7 +46,7 @@ onScroll();
 
 if (!reduceMotion && "IntersectionObserver" in window) {
   const revealTargets = document.querySelectorAll(
-    "section > h2, .feature, .product-card, .table-wrap, .testimonial, .faq-list details, #video, #signup > p, #form"
+    "section > h2, .feature, .step, .product-card, .table-wrap, .testimonial, .faq-list details, #video, #signup > p, #form"
   );
 
   const observer = new IntersectionObserver(
@@ -83,3 +83,60 @@ document.querySelectorAll(".feature, .product-card").forEach((card) => {
     card.style.setProperty("--my", `${e.clientY - rect.top}px`);
   });
 });
+
+/* ---------- dark / light theme ---------- */
+
+const root = document.documentElement;
+const themeToggle = document.getElementById("theme-toggle");
+
+function syncThemeLabel() {
+  const dark = root.getAttribute("data-theme") === "dark";
+  themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+}
+
+themeToggle.addEventListener("click", () => {
+  const dark = root.getAttribute("data-theme") !== "dark";
+  if (dark) root.setAttribute("data-theme", "dark");
+  else root.removeAttribute("data-theme");
+  try {
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  } catch (e) {
+    /* storage blocked: the choice just won't be remembered */
+  }
+  syncThemeLabel();
+});
+syncThemeLabel();
+
+/* ---------- signup form ---------- */
+
+// The form's action is still the freeCodeCamp placeholder, so nothing is stored yet.
+// To collect real emails, point the form's action at a form service and POST with fetch() here.
+const form = document.getElementById("form");
+const formMessage = document.getElementById("form-message");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email");
+  formMessage.classList.remove("error");
+
+  if (!email.checkValidity()) {
+    formMessage.classList.add("error");
+    formMessage.textContent = "Please enter a valid email address.";
+    return;
+  }
+
+  formMessage.textContent = "Thanks! You're on the list.";
+  form.reset();
+});
+
+/* ---------- back links: portfolio, or the studio if we came from the room ---------- */
+
+if (new URLSearchParams(window.location.search).get("from") === "room") {
+  const roomUrl = "https://patreekare.github.io/world.html?open=coursework&project=product";
+  document.querySelectorAll(".nav-back, .footer-back a").forEach((link) => {
+    link.href = roomUrl;
+    link.innerHTML = link.classList.contains("nav-back")
+      ? "&larr; Studio"
+      : "&larr; Back to the studio";
+  });
+}

@@ -5,11 +5,36 @@
   --cream: #f7f3ee;
   --gold: #f4b942;
   --gold-light: #ffd166;
-  --gold-dark: #b36b00;
-  --border: #e4ddd2;
   --header-h: 76px;
+
+  /* theme colors: swapped by html[data-theme="dark"] below */
+  --bg: #f7f3ee;
+  --surface: #fff;
+  --surface-alt: #efe9df;
+  --text: #222;
+  --muted: #555;
+  --faint: #777;
+  --border: #e4ddd2;
+  --highlight: #fff8e6;
+  --price: #b36b00;
   --shadow: 0 2px 6px rgba(17, 17, 17, 0.06);
   --shadow-lift: 0 14px 30px rgba(17, 17, 17, 0.14);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg: #12131d;
+  --surface: #1c1e2e;
+  --surface-alt: #171826;
+  --text: #e9e9f2;
+  --muted: #b5b7cc;
+  --faint: #8f92ab;
+  --border: #2e3148;
+  --highlight: #2b2717;
+  --price: #f4b942;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 14px 30px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
 }
 
 * {
@@ -25,8 +50,8 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
-  background-color: var(--cream);
-  color: #222;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 a:focus-visible,
@@ -172,6 +197,10 @@ section > h2 + * {
     center / 100% 100% no-repeat;
 }
 
+html[data-theme="dark"] .hero::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C240 60 480 0 720 25 S1200 55 1440 20 V60 H0Z' fill='%2312131d'/%3E%3C/svg%3E");
+}
+
 .hero > * {
   position: relative;
   z-index: 1;
@@ -311,7 +340,7 @@ section > h2 + * {
 }
 
 .feature {
-  background-color: white;
+  background-color: var(--surface);
   width: 240px;
   padding: 30px 25px;
   border-radius: 12px;
@@ -395,7 +424,7 @@ section > h2 + * {
 
 .video-section {
   text-align: center;
-  background-color: #fff;
+  background-color: var(--surface);
 }
 
 #video {
@@ -425,7 +454,7 @@ section > h2 + * {
 .product-card {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--surface);
   width: 320px;
   border-radius: 12px;
   padding: 18px 18px 24px;
@@ -466,7 +495,7 @@ section > h2 + * {
 .product-card.featured {
   border: 2px solid transparent;
   background:
-    linear-gradient(white, white) padding-box,
+    linear-gradient(var(--surface), var(--surface)) padding-box,
     conic-gradient(from var(--angle), var(--gold), #ff8fab, #8b5cf6, var(--gold))
       border-box;
   animation: spin-border 6s linear infinite;
@@ -500,7 +529,7 @@ section > h2 + * {
 }
 
 .product-card h4 {
-  color: var(--gold-dark);
+  color: var(--price);
   font-size: 1.3rem;
   margin: 0 0 10px;
 }
@@ -528,7 +557,7 @@ section > h2 + * {
 /* ---------- Comparison ---------- */
 
 .compare-section {
-  background-color: #fff;
+  background-color: var(--surface);
 }
 
 .table-wrap {
@@ -569,7 +598,7 @@ section > h2 + * {
 .compare-table tbody th {
   text-align: left;
   font-weight: 500;
-  color: #555;
+  color: var(--muted);
 }
 
 .compare-table tbody tr:last-child th,
@@ -578,7 +607,7 @@ section > h2 + * {
 }
 
 .compare-table td.highlight {
-  background-color: #fff8e6;
+  background-color: var(--highlight);
   font-weight: 700;
 }
 
@@ -589,7 +618,7 @@ section > h2 + * {
 }
 
 .no {
-  color: #aaa;
+  color: var(--faint);
 }
 
 /* ---------- Testimonials ---------- */
@@ -608,7 +637,7 @@ section > h2 + * {
   width: 320px;
   margin: 0;
   padding: 28px 24px;
-  background-color: white;
+  background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow);
@@ -644,13 +673,13 @@ section > h2 + * {
   text-align: center;
   margin: 24px 0 0;
   font-size: 0.85rem;
-  color: #777;
+  color: var(--faint);
 }
 
 /* ---------- FAQ ---------- */
 
 .faq-section {
-  background-color: #fff;
+  background-color: var(--surface);
 }
 
 .faq-list {
@@ -663,7 +692,7 @@ section > h2 + * {
   border: 1px solid var(--border);
   border-radius: 10px;
   margin-bottom: 12px;
-  background-color: var(--cream);
+  background-color: var(--bg);
 }
 
 .faq-list summary {
@@ -685,7 +714,7 @@ section > h2 + * {
   content: "+";
   font-size: 1.5rem;
   line-height: 1;
-  color: var(--gold-dark);
+  color: var(--price);
   transition: transform 0.2s;
 }
 
@@ -819,6 +848,162 @@ footer p {
   margin: 0;
 }
 
+/* ---------- Portfolio link, theme toggle ---------- */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* set apart from the in-page links, and not a .nav-link (those must point at on-page sections) */
+.nav-back {
+  margin-left: 4px;
+  padding: 6px 0 6px 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--gold);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-back:hover {
+  color: var(--gold-light);
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle .icon-sun,
+html[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+.footer-back {
+  margin-top: 8px;
+}
+
+.footer-back a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.footer-back a:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+html[data-theme="dark"] .avatar {
+  background-color: #34375a;
+}
+
+/* ---------- How it works ---------- */
+
+.how-section {
+  background-color: var(--surface-alt);
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  flex: 1 1 200px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.step-num {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #ff8fab);
+  color: var(--ink);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(244, 185, 66, 0.35);
+}
+
+/* dashed connector between steps, desktop only */
+@media (min-width: 900px) {
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: calc(50% + 46px);
+    width: calc(100% + 48px - 92px);
+    border-top: 2px dashed var(--gold);
+    opacity: 0.6;
+  }
+}
+
+.step h3 {
+  margin: 0 0 8px;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- Signup message ---------- */
+
+.form-message {
+  min-height: 1.6em;
+  margin-top: 16px !important;
+  font-weight: 700;
+  color: var(--gold-light) !important;
+}
+
+.form-message.error {
+  color: #ffb4b4 !important;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 700px) {
@@ -842,9 +1027,27 @@ footer p {
     font-size: 1.15rem;
   }
 
+  /* nav becomes a direct child of the header again; the toggle sits in the top-right corner */
+  .header-right {
+    display: contents;
+  }
+
   #nav-bar {
-    gap: 22px;
-    font-size: 0.95rem;
+    gap: 14px;
+    font-size: 0.9rem;
+    align-items: center;
+  }
+
+  .nav-back {
+    padding-left: 14px;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
   }
 
   section {
