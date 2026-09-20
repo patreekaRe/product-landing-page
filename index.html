@@ -27,16 +27,26 @@
         <a class="nav-link" href="#products">Products</a>
         <a class="nav-link" href="#signup">Sign Up</a>
       </nav>
+
+      <div id="progress" aria-hidden="true"></div>
     </header>
 
     <main>
       <section class="hero">
-        <h2>Clean sound for creators, singers, and home studios.</h2>
+        <div class="hero-eq" id="hero-eq" aria-hidden="true"></div>
+        <p class="eyebrow">Home studio essentials</p>
+        <h2>
+          <span class="gradient-text">Clean sound</span> for creators, singers,
+          and home studios.
+        </h2>
         <p>
           Rosal Audio Gear makes simple, affordable equipment for musicians who
           want better recordings without needing a huge studio setup.
         </p>
-        <a href="#products" class="hero-button">Shop Gear</a>
+        <div class="hero-actions">
+          <a href="#products" class="hero-button">Shop Gear</a>
+          <a href="#demo" class="hero-link">Watch the demo</a>
+        </div>
       </section>
 
       <section id="features">
@@ -44,6 +54,9 @@
 
         <div class="feature-boxes">
           <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v0M8 8v8M12 4v16M16 8v8M20 12v0"/></svg>
+            </div>
             <h3>Studio Quality</h3>
             <p>
               Our gear is made for clean vocals, clear instruments, and low
@@ -52,6 +65,9 @@
           </div>
 
           <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>
+            </div>
             <h3>Beginner Friendly</h3>
             <p>
               Easy setup instructions help new musicians start recording fast.
@@ -59,6 +75,9 @@
           </div>
 
           <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6v2M12 16v2"/></svg>
+            </div>
             <h3>Affordable Prices</h3>
             <p>
               Get solid audio gear without spending thousands on a full studio.
@@ -66,6 +85,9 @@
           </div>
 
           <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H10l-6 4z"/></svg>
+            </div>
             <h3>Fast Support</h3>
             <p>
               Our support team helps with setup, recording tips, and product
@@ -75,16 +97,17 @@
         </div>
       </section>
 
-      <section class="video-section">
+      <section id="demo" class="video-section">
         <h2>See Our Gear in Action</h2>
 
         <iframe
           id="video"
           width="560"
           height="315"
-          src="https://youtu.be/W2ddLzQgKIc?si=meyU40dzvtPPMJvu"
+          src="https://www.youtube.com/embed/W2ddLzQgKIc"
           title="Product video"
           frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
       </section>
@@ -94,43 +117,197 @@
 
         <div class="product-container">
           <div class="product-card">
-            <img
-              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=700&q=80"
-              alt="Studio microphone"
-            />
+            <div class="thumb">
+              <img
+                src="images/vocalpro-mic.svg"
+                alt="Studio microphone"
+                width="600"
+                height="450"
+                loading="lazy"
+              />
+            </div>
             <h3>VocalPro Mic</h3>
             <h4>$129</h4>
             <p>
               A clear condenser microphone made for singers, podcasters, and
               home studio creators.
             </p>
+            <a class="card-link" href="#signup">Get notified</a>
           </div>
 
           <div class="product-card">
-            <img
-              src="https://thumbs.dreamstime.com/b/cropped-close-up-vertical-photo-lady-hand-hold-demonstrate-wireless-headphones-isolated-blue-color-background-345930572.jpg"
-              alt="Audio headphones"
-            />
+            <div class="thumb">
+              <img
+                src="images/mixmaster-headphones.svg"
+                alt="Audio headphones"
+                width="600"
+                height="450"
+                loading="lazy"
+              />
+            </div>
             <h3>MixMaster Headphones</h3>
             <h4>$89</h4>
             <p>
               Comfortable studio headphones with balanced sound for mixing,
               editing, and practice.
             </p>
+            <a class="card-link" href="#signup">Get notified</a>
           </div>
 
-          <div class="product-card">
-            <img
-              src="https://media.istockphoto.com/id/1203054888/photo/microphone-for-podcasts-and-studio-headphones-on-a-black-background-vertical-frame.jpg?s=612x612&w=0&k=20&c=vbIDUVcWpHFvbbikDl2tRFZjtFtcbpijsM2zEY1UjN8="
-              alt="audio and microphone bundle"
-            />
+          <div class="product-card featured">
+            <span class="badge">Complete kit</span>
+            <div class="thumb">
+              <img
+                src="images/starter-bundle.svg"
+                alt="Audio and microphone bundle"
+                width="600"
+                height="450"
+                loading="lazy"
+              />
+            </div>
             <h3>Starter Studio Bundle</h3>
             <h4>$249</h4>
             <p>
               Includes a microphone, headphones, cable, and simple setup guide
               for new creators.
             </p>
+            <a class="card-link" href="#signup">Get notified</a>
           </div>
+        </div>
+      </section>
+
+      <section id="compare" class="compare-section">
+        <h2>Compare Our Gear</h2>
+
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr-only">Feature</span></th>
+                <th scope="col">VocalPro Mic</th>
+                <th scope="col">MixMaster Headphones</th>
+                <th scope="col" class="highlight">Starter Studio Bundle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Price</th>
+                <td>$129</td>
+                <td>$89</td>
+                <td class="highlight">$249</td>
+              </tr>
+              <tr>
+                <th scope="row">Best for</th>
+                <td>Singers, podcasters, home studios</td>
+                <td>Mixing, editing, practice</td>
+                <td class="highlight">New creators starting from scratch</td>
+              </tr>
+              <tr>
+                <th scope="row">Microphone</th>
+                <td><span class="yes" aria-label="Included">&#10003;</span></td>
+                <td><span class="no" aria-label="Not included">&mdash;</span></td>
+                <td class="highlight"><span class="yes" aria-label="Included">&#10003;</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Headphones</th>
+                <td><span class="no" aria-label="Not included">&mdash;</span></td>
+                <td><span class="yes" aria-label="Included">&#10003;</span></td>
+                <td class="highlight"><span class="yes" aria-label="Included">&#10003;</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Cable</th>
+                <td><span class="no" aria-label="Not included">&mdash;</span></td>
+                <td><span class="no" aria-label="Not included">&mdash;</span></td>
+                <td class="highlight"><span class="yes" aria-label="Included">&#10003;</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Setup guide</th>
+                <td><span class="no" aria-label="Not included">&mdash;</span></td>
+                <td><span class="no" aria-label="Not included">&mdash;</span></td>
+                <td class="highlight"><span class="yes" aria-label="Included">&#10003;</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="testimonials" class="testimonials-section">
+        <h2>What Creators Say</h2>
+
+        <div class="testimonial-container">
+          <figure class="testimonial">
+            <blockquote>
+              &ldquo;I set up my first home recording in an afternoon. The
+              setup guide made it painless.&rdquo;
+            </blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">A</span>
+              <span><strong>Alex R.</strong><br />Podcaster</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              &ldquo;My vocals finally sound clean without a giant studio
+              budget. Support answered my questions fast.&rdquo;
+            </blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">J</span>
+              <span><strong>Jordan M.</strong><br />Singer-songwriter</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              &ldquo;Comfortable enough to mix in for hours, and the sound is
+              balanced. Great value.&rdquo;
+            </blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">S</span>
+              <span><strong>Sam T.</strong><br />Beat maker</span>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="sample-note">Sample feedback shown for demonstration.</p>
+      </section>
+
+      <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+          <details>
+            <summary>What do I need to start recording?</summary>
+            <p>
+              A microphone, a pair of headphones, a cable, and a computer or
+              phone to record on. The Starter Studio Bundle includes the first
+              three plus a setup guide.
+            </p>
+          </details>
+
+          <details>
+            <summary>I'm a complete beginner. Is this for me?</summary>
+            <p>
+              Yes. Our gear and setup instructions are written for new
+              musicians and creators, and our support team can walk you through
+              the rest.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do I get help with setup?</summary>
+            <p>
+              Contact our support team for help with setup, recording tips, and
+              product questions.
+            </p>
+          </details>
+
+          <details>
+            <summary>What are the shipping and return policies?</summary>
+            <p>
+              Shipping and return details will be confirmed at checkout. Join
+              the mailing list below to hear about launch offers first.
+            </p>
+          </details>
         </div>
       </section>
 
@@ -159,6 +336,9 @@
       <p>&copy; Rosal Audio Gear 2026. Built for musicians and creators.</p>
     </footer>
 
+    <a href="#header" id="back-to-top" class="back-to-top" aria-label="Back to top">&uarr;</a>
+
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
